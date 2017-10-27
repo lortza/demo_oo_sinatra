@@ -3,29 +3,30 @@ require 'sinatra/reloader' if development?
 require 'erb'
 require 'json'
 require 'pry'
-require './models/board'
+require './models/name_saver'
 
-get '/checkers' do
-  @board = Board.new( session[:board_arr] )
-  erb :checkers
+
+get '/' do
+  @name_saver = NameSaver.new( session[:names] )
+  erb :index
 end
 
-post '/checkers/place_piece' do
+post '/add_name' do
 
-  # Re-instantiate the board
-  @board = Board.new( session[:board_arr] )
+  # Re-instantiate the name_saver
+  @name_saver = NameSaver.new( session[:names] )
 
-  # Try to place the piece on the board
-  if @board.place_piece( params[:name_from_form] )
-    # "Save" our board back to the session since it has been modified
-    session[:board_arr] = @board.board_arr.to_json
+  # Try to add a name to the name_saver
+  if @name_saver.add_name( params[:name_from_form] )
+    # "Save" our name_saver back to the session since it has been modified
+    session[:names] = @name_saver.names.to_json
   else
 
     # Set an error variable we can render with the view
-    @error = "You can't put a piece there, try again!"
+    @error = "You can't add a name there, try again!"
 
   end
 
   # Render our template as normal
-  erb :checkers
+  erb :index
 end
