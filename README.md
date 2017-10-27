@@ -3,9 +3,13 @@
 This is a demo app for tinkering along with the Viking Sinatra chapter:
 https://www.vikingcodeschool.com/dashboard#/sinatra-web-apps/object-oriented-sinatra
 
-It is not currently successfully saving the current board state to the session
+It's not an actual checkers game. For simplicity, it simply adds items to an array.
 
 ### To Run
 ```
+# either
 $ rackup -p 4567
+
+# or
+$ ruby app.rb
 ```
