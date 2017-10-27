@@ -17,10 +17,8 @@ post '/checkers/place_piece' do
 
   # Try to place the piece on the board
   if @board.place_piece( params[:name_from_form] )
-    # "Save" our board back to the session since
-    # it has been modified
+    # "Save" our board back to the session since it has been modified
     session[:board_arr] = @board.board_arr.to_json
-
   else
 
     # Set an error variable we can render with the view

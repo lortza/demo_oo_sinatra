@@ -1,3 +1,5 @@
+# Classes do NOT have access to the sessions hash
+
 class Board
 
   attr_accessor :board_arr
