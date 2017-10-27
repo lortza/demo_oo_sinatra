@@ -1,6 +1,6 @@
-# Demo OOP Sinatra
+# Demo Object Oriented Sinatra
 
-This is a demo app for tinkering along with the Sinatra demo:
+This is a demo app for tinkering along with the Viking Sinatra chapter:
 https://www.vikingcodeschool.com/dashboard#/sinatra-web-apps/object-oriented-sinatra
 
 It is not currently successfully saving the current board state to the session
