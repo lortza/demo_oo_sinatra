@@ -5,6 +5,8 @@ require 'json'
 require 'pry'
 require './models/name_saver'
 
+# enable sessions or you're gonna have a bad time
+enable :sessions
 
 get '/' do
   @name_saver = NameSaver.new( session[:names] )
